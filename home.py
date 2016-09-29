@@ -30,7 +30,7 @@ def index():
 	header_text = cursor.fetchall()
 
 	# Write a query that will pull the three main fields for all rows that have page as home, and left_block as location. Alsp, make sure they are publisehd (status = 1)
-	left_block_query = "SELECT header_text,content,image_link FROM page_content WHERE page = 'home' AND location = 'left_block' AND status = 1 ORDER BY priority asc"
+	left_block_query = "SELECT header_text,content,image_link, id FROM page_content WHERE page = 'home' AND location = 'left_block' AND status = 1 ORDER BY priority asc"
 	# Run the query
 	cursor.execute(left_block_query)
 	# Turn the query into something Python can use via fetchall
@@ -40,6 +40,8 @@ def index():
 		header = header_text,
 		left_data = data
 	)
+
+
 
 @app.route('/admin')
 def admin():
@@ -98,9 +100,11 @@ def admin_update():
 		#ok, youre logged in, I will insert your stuff
 		body = request.form['body_text']
 		header = request.form['header']
-		image = request.form['image']
+		image = request.files['image']
+		image.save('static/images/'+ image.filename)
+		image_path = image.filename
  		# execute our query
-		query = "INSERT INTO page_content VALUES (DEFAULT, 'home', '"+body+"', 1,1,'left_block', NULL, '"+header+"', '"+image+"')"
+		query = "INSERT INTO page_content VALUES (DEFAULT, 'home', '"+body+"', 1,1,'left_block', NULL, '"+header+"', '"+image_path+"')"
 		# print query
 		cursor.execute(query)
 		conn.commit()
@@ -146,6 +150,15 @@ def delete(id):
 	return redirect('/admin_portal?message=ItemDeleted')
 
 
+@app.route('/link_page/<path:id>')
+def link_page(id):
+	query = "SELECT header_text, content, image_page, id, status, priority FROM page_content WHERE id = %s" % id
+	print query
+	cursor.execute(query)
+	data = cursor.fetchone()
+	return render_template('link_page.html',
+		data = data
+	)
 
 if __name__== "__main__":
 	app.run(debug = True)

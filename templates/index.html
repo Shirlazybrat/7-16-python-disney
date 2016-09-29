@@ -3,11 +3,12 @@
 <body>
     <div class="header">
         <ul class="menu-wrapper">
-            <li>Parks & Tickets</li>
-            <li>Places to stay</li>
-            <li>Things to do</li>
-            <li>Help</li>
-            <li>Cart</li>
+            <li class="center"><img src="static/images/logo.jpg"></li>
+            <li><a href="#">Parks & Tickets</a></li>
+            <li><a href="#">Places to stay</a></li>
+            <li><a href="#">Things to do</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Cart</a></li>
         </ul>
     </div>
     <div class="main-content">
@@ -23,6 +24,7 @@
             </p>
             <div class="left-block-stuff">
                 {% for row in left_data: %}
+                <a href="/link_page/{{row[3]}}">
                 <div class="left-block-item">
                     <div class="hero-image">
                         <img src="static/images/{{row[2]}}">
@@ -35,10 +37,11 @@
                             {{row[1]}}
                         </p>
                     </div>
-                </div>
+                </div></a>
                 {% endfor %}
             </div>
         </div>
+
         <div class="right-content-bar">
             <div class="hours">
                 <p>Hours</p>

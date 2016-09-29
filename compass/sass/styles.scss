@@ -13,6 +13,12 @@ body {
 .header {
     height: 60px;
     background-color: #fff;
+
+    img {
+    	height: 50px;
+    	margin-left: 10px; 
+    }
+
     .menu-wrapper {
         max-width: 960px;
         margin: auto;
@@ -63,10 +69,11 @@ body {
                 max-width: 30%;
                 display: inline-block;
                 img {
-                    max-height: 100%;
+                    max-height: 100px;
                     margin: 10px;
                 }
             }
+
             .hero-text-wrapper {
             	vertical-align: top; 
               display: inline-block;
@@ -79,8 +86,11 @@ body {
 									color: #253b56;
                 }
                 .block-text {
-
+									color: #000;
                 }
+                .block-header:hover, .block-text:hover{
+									color: #2f9DD9;
+            		}
             }
         }
     }
@@ -158,4 +168,9 @@ table.table{
 			font-size: 20px;
 		}
 	}
+}
+
+.link-page-wrapper {
+	margin: 20px;
+	text-align: center;
 }
