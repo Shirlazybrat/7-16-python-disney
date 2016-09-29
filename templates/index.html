@@ -1,0 +1,64 @@
+{% extends 'layout.html' %} {% block body %}
+
+<body>
+    <div class="header">
+        <ul class="menu-wrapper">
+            <li>Parks & Tickets</li>
+            <li>Places to stay</li>
+            <li>Things to do</li>
+            <li>Help</li>
+            <li>Cart</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="main-header">
+            <h1>Disney's Animal Kingdom Theme Park</h1>
+        </div>
+        <div class="header-image">
+            <img src="static/images/tree.jpg" alt="tree">
+        </div>
+        <div class="left-content-bar">
+            <p class="left-bar-header">
+                {{header[0][2]}}
+            </p>
+            <div class="left-block-stuff">
+                {% for row in left_data: %}
+                <div class="left-block-item">
+                    <div class="hero-image">
+                        <img src="static/images/{{row[2]}}">
+                    </div>
+                    <div class="hero-text-wrapper">
+                        <p class="block-header">
+                            {{row[0]}}
+                        </p>
+                        <p class="block-text">
+                            {{row[1]}}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="right-content-bar">
+            <div class="hours">
+                <p>Hours</p>
+                <p>Wednesday</p>
+                <p>September 28, 2016 Select Date</p>
+                <p>9:00 AM to 9:00 PM</p>
+                <div class="print-map">
+                    Download Printable Map Guest Services
+                </div>
+            </div>
+            <div class="tickets">
+                <p>Starting at</p>
+                <p class="ticket-price">$97.00</p>
+                <p>for a 1-day ticket!</p>
+                <button>Purchase Admission</button>
+            </div>
+            <div class="map">
+                <p>Map</p>
+                <img src="static/images/map.png" alt="map">
+            </div>
+        </div>
+    </div>
+    {% endblock %}

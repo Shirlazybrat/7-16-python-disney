@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<form class="form-horizontal" method="post" action="/edit/{{data[3]}}">
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Header</label>
+        <div class="col-sm-10">
+            <input type="text" name="header" class="form-control" id="inputEmail3" placeholder="header text" value="{{data[0]}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">body text</label>
+        <div class="col-sm-10">
+            <input type="text" name="body_text" class="form-control" id="inputPassword3" placeholder="body text" value="{{data[1]}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Image</label>
+        <div class="col-sm-10">
+            <input type="text" name="image" class="form-control" id="inputPassword3" placeholder="image link" value="{{data[2]}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Status</label>
+        <div class="col-sm-10">
+            <input type="text" name="status" class="form-control" id="inputPassword3" placeholder="status" value="{{data[4]}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Priority</label>
+        <div class="col-sm-10">
+            <input type="text" name="priority" class="form-control" id="inputPassword3" placeholder="priority" value="{{data[5]}}">
+        </div>
+    </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Update Content</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
